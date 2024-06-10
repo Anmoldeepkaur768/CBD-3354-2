@@ -40,4 +40,8 @@ spec:
         - name: DB_PORT
           value: "5432"  # Modify the port as per your database configuration
       imagePullSecrets:
+<<<<<<< HEAD
       - name: mydb-credentials
+=======
+      - name: mydb-credentials
+>>>>>>> c170eda714b13ea208086640ccc2afca73386769
