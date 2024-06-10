@@ -17,4 +17,4 @@ spec:
       - name: myfrontapp-container
         image: gcr.io/in-class-activity-424123/frontdb:latest
       imagePullSecrets:
-      - name: regcred
+      - name: gcr-json-key
