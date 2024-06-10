@@ -28,7 +28,7 @@ def connect_to_db():
 @app.route('/', methods=['POST'])
 def upload_to_database():
     name = request.form.get('name')
-    city = request.form.get('city')
+    city = request.form.get('country')
 
     conn = connect_to_db()
     if conn is None:
@@ -36,12 +36,12 @@ def upload_to_database():
     
     cur = conn.cursor()
     try:
-        cur.execute("INSERT INTO mytable (name, city) VALUES (%s, %s)", (name, city))
+        cur.execute("INSERT INTO mytable (name, country) VALUES (%s, %s)", (name, country))
         conn.commit()
         return jsonify({'message': 'Data uploaded successfully'}), 200
     except psycopg2.Error as e:
         conn.rollback()
-        return jsonify({'error': 'Failed to upload data to database', 'details': str(e)}), 500
+        return jsonify({'error': 'Failed to upload data to database.Please eneter the correct details', 'details': str(e)}), 500
     finally:
         cur.close()
         conn.close()
